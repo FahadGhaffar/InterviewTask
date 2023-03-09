@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "9774361c-a9d6-4fc6-b767-f7b230d62128",
+		"name": "InterviewTask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9232413"
+	},
+	"item": [
+		{
+			"name": "CreateUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mike\",\r\n    \"birthdate\" : \"12/11/1981\",\r\n    \"email\" : \"Mike@gmail.com\",\r\n    \"accounts\": [{\r\n        \"account_id\" : \"371456\",\r\n        \"limit\": 3000,\r\n        \"transaction_count\" : 9\r\n    },{\r\n        \"account_id\" : \"377865\",\r\n        \"limit\": 9000,\r\n        \"transaction_count\" : 10\r\n    }]\r\n\r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getSingleUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/640a5dbc4004713d7aeaaf31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"640a5dbc4004713d7aeaaf31"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchByNameWithPost",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n        \"name\" : \"Mike\"\r\n\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetWithAccountNumber",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"account_id\": 371138\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"account"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
