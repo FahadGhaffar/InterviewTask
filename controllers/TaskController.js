@@ -100,7 +100,7 @@ const getByAccount = async (req, res) => {
         // res.json({ id: req.params.id })
         let getAccount = getaccountArray.filter(function (obj) {
             return obj.account_id == accountId;
-        });
+        })[0];
 
         res.status(200).json({ getAccount })
     } catch (error) {
