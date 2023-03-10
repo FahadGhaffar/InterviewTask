@@ -89,22 +89,20 @@ const getByAccount = async (req, res) => {
 
         const { account_id: accountId } = req.body;
         console.log(accountId);
-        const user = await User.findOne({ accounts: { $elemMatch: { account_id: accountId } } });
-        // const query = [
-        //     {
-        //         "$match": {
+        const user = await User.findOne({ "user.accounts": { $elemMatch: { account_id: accountId } } });
 
-        //             "accounts.account_id": accountId
-        //         }
-        //     }]
-        // const user = await User.aggregate(query);
         if (!user) {
 
             throw new NotFoundError(`No user with  : ${accountId}`);
         }
-
+        const getaccountArray = user.accounts
+        // console.log(getaccountArray);
         // res.json({ id: req.params.id })
-        res.status(200).json({ user })
+        let getAccount = getaccountArray.filter(function (obj) {
+            return obj.account_id == accountId;
+        });
+
+        res.status(200).json({ getAccount })
     } catch (error) {
         res.status(500).json({ msg: error })
     }
