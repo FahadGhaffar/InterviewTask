@@ -10,7 +10,15 @@ const UserAccount = mongoose.Schema({
 
 const UserSchema = mongoose.Schema(
     {
+        username: {
+            type: String,
+            required: true,
+        },
         name: {
+            type: String,
+            required: true,
+        },
+        address: {
             type: String,
             required: true,
         },
@@ -21,6 +29,10 @@ const UserSchema = mongoose.Schema(
         email: {
             type: String,
             required: true,
+        },
+        active: {
+            type: Boolean,
+            default: false
         },
 
         accounts: [UserAccount],

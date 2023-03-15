@@ -1,4 +1,4 @@
-import User from "../models/Task.js"
+import User from "../models/customers.js"
 
 import { StatusCodes } from "http-status-codes"
 
@@ -6,7 +6,7 @@ import { NotFoundError, BadRequestError } from "../errors/index.js"
 
 import fs from 'fs'
 
-const data = JSON.parse(fs.readFileSync('./sample_analytics/accounts.json'))
+const data = JSON.parse(fs.readFileSync('./sample_analytics/customers.json'))
 
 const getAllUsers = async (req, res) => {
 
