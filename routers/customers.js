@@ -8,7 +8,8 @@ import {
     getSingleUser,
     createUser,
     getByName,
-    getByAccount
+    getByAccount,
+    viewTransaction
 
 } from '../controllers/customersController.js'
 
@@ -17,6 +18,10 @@ import {
 router
     .route('/')
     .get(getAllUsers);
+
+router
+    .route('/viewTransaction')
+    .get(viewTransaction);
 
 router.route('/').post(createUser);
 router.route('/name').post(getByName);

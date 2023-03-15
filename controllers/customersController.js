@@ -6,8 +6,15 @@ import { NotFoundError, BadRequestError } from "../errors/index.js"
 
 import fs from 'fs'
 
-const data = JSON.parse(fs.readFileSync('./sample_analytics/customers.json'))
+// const data = JSON.parse(fs.readFileSync('./sample_analytics/customers.json'))
+const transactionsSample = JSON.parse(fs.readFileSync('./sample_analytics/transactionsSample.json'))
 
+
+const viewTransaction = async (req, res) => {
+
+    // const users = await User.find({});
+    res.status(StatusCodes.OK).json({ transactionsSample });
+};
 const getAllUsers = async (req, res) => {
 
     const users = await User.find({});
@@ -28,8 +35,8 @@ const createUser = async (req, res) => {
 
 
     try {
-        // const user = await User.create(req.body);
-        const user = await User.create(data);
+        const user = await User.create(req.body);
+        // const user = await User.create(data);
         // const task = new Task({ "name": "ABC", 'completed': true });
         // await task.save()
         res.status(StatusCodes.CREATED).json({ user })
@@ -120,7 +127,8 @@ export {
     getSingleUser,
     createUser,
     getByName,
-    getByAccount
+    getByAccount,
+    viewTransaction
 
 }
 

@@ -74,6 +74,7 @@ const start = async () => {
 
     try {
         await connectDB(config.mongo_connection_uri)
+
         app.listen(PORT, () => {
             console.log("server is working ")
         })
