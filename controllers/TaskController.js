@@ -4,7 +4,9 @@ import { StatusCodes } from "http-status-codes"
 
 import { NotFoundError, BadRequestError } from "../errors/index.js"
 
+import fs from 'fs'
 
+const data = JSON.parse(fs.readFileSync('./sample_analytics/accounts.json'))
 
 const getAllUsers = async (req, res) => {
 
@@ -26,7 +28,8 @@ const createUser = async (req, res) => {
 
 
     try {
-        const user = await User.create(req.body);
+        // const user = await User.create(req.body);
+        const user = await User.create(data);
         // const task = new Task({ "name": "ABC", 'completed': true });
         // await task.save()
         res.status(StatusCodes.CREATED).json({ user })
